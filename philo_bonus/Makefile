@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/06 21:26:05 by hyerkim           #+#    #+#              #
-#    Updated: 2021/07/06 21:27:16 by hyerkim          ###   ########.fr        #
+#    Created: 2021/07/06 21:25:59 by hyerkim           #+#    #+#              #
+#    Updated: 2021/07/06 21:27:24 by hyerkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CLAGC = -Wall -Wextra -Werror
-NAME = philo
+NAME = philo_bonus
 RM = rm -f
-SRCS = action.c check.c init.c main.c print.c utils.c
+SRCS = action_bonus.c check_bonus.c init_bonus.c main_bonus.c print_bonus.c utils_bonus.c
 OBJS = $(SRCS:.c=.o)
 
 $(NAME) : $(OBJS)
