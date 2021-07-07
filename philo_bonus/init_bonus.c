@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:45:44 by hyerkim           #+#    #+#             */
-/*   Updated: 2021/07/06 20:45:44 by hyerkim          ###   ########.fr       */
+/*   Updated: 2021/07/07 13:43:41 by hyerkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	init_condition(t_condition *condition, char **argv)
 	if (argv[5])
 		condition->must_eat = ft_atoi(argv[5]);
 	else
-		condition->must_eat = 0;
+		condition->must_eat = -1;
 	condition->start = get_time();
 	condition->philo = NULL;
 	condition->fork_s = NULL;

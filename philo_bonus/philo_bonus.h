@@ -6,7 +6,7 @@
 /*   By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:45:49 by hyerkim           #+#    #+#             */
-/*   Updated: 2021/07/06 21:04:37 by hyerkim          ###   ########.fr       */
+/*   Updated: 2021/07/07 14:35:26 by hyerkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_philo
 	int					last_eat;
 	int					lfork;
 	int					rfork;
-	int					how_many_eat;
 	pid_t				pid;
 	struct s_condition	*condition;
 	sem_t				*eat_dead_s;
@@ -73,7 +72,7 @@ void			print_error(char *s);
 void			print_message(char *s, t_philo *philo, int is_dead);
 
 void			*check_dead(void *philo_v);
-void			*check_count(void *philo_v);
+void			*check_count(void *condition);
 int				check_argv(char **argv);
 
 #endif

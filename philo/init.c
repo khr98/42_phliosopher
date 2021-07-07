@@ -6,7 +6,7 @@
 /*   By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 17:56:29 by hyerkim           #+#    #+#             */
-/*   Updated: 2021/07/06 20:41:00 by hyerkim          ###   ########.fr       */
+/*   Updated: 2021/07/06 21:41:26 by hyerkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	init_condition(t_condition *condition, char **argv)
 	if (argv[5])
 		condition->must_eat = ft_atoi(argv[5]);
 	else
-		condition->must_eat = 0;
+		condition->must_eat = -1;
 	condition->start = get_time();
 	condition->philo = NULL;
 	condition->fork_m = NULL;

@@ -6,7 +6,7 @@
 /*   By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:45:36 by hyerkim           #+#    #+#             */
-/*   Updated: 2021/07/06 21:06:10 by hyerkim          ###   ########.fr       */
+/*   Updated: 2021/07/07 14:39:44 by hyerkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	eating(t_philo *philo)
 	print_message(" is eating\n", philo, 0);
 	sem_post(philo->eat_dead_s);
 	usleep(philo->condition->time_to_eat * 1000);
-	philo->how_many_eat++;
 	philo->is_eating = 0;
 	sem_post(philo->eat_count_s);
 }
@@ -36,7 +35,6 @@ void	finished_eating(t_philo *philo)
 {
 	sem_post(philo->condition->fork_s);
 	sem_post(philo->condition->fork_s);
-	print_message(" has put down fork\n", philo, 0);
 	print_message(" is sleeping\n", philo, 0);
 	usleep(philo->condition->time_to_sleep * 1000);
 }
@@ -47,7 +45,7 @@ int	start(t_philo *philo_i)
 	pthread_t	pid;
 
 	philo = (t_philo *)philo_i;
-	philo->last_eat = get_time();
+	philo->last_eat = philo->condition->start;
 	philo->limit = philo->last_eat + philo->condition->time_to_die;
 	if (pthread_create(&pid, NULL, &check_dead, philo_i) != 0)
 		return (1);
@@ -67,7 +65,7 @@ void	made_process(t_condition *condition)
 
 	i = -1;
 	condition->start = get_time();
-	if (condition->must_eat)
+	if (condition->must_eat != -1)
 	{
 		pthread_create(&pid, NULL, &check_count, (void *)condition);
 		pthread_detach(pid);
@@ -77,6 +75,5 @@ void	made_process(t_condition *condition)
 		condition->philo[i].pid = fork();
 		if (condition->philo[i].pid == 0)
 			start(&condition->philo[i]);
-		usleep(100);
 	}
 }

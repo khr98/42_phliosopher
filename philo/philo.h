@@ -6,7 +6,7 @@
 /*   By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:30:43 by hyerkim           #+#    #+#             */
-/*   Updated: 2021/07/06 21:09:25 by hyerkim          ###   ########.fr       */
+/*   Updated: 2021/07/07 14:35:29 by hyerkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_philo
 	pthread_t			pid;
 	int					lfork;
 	int					rfork;
-	int					how_many_eat;
 	struct s_condition	*condition;
 	pthread_mutex_t		mutex;
 	pthread_mutex_t		eat_count_m;
@@ -68,7 +67,7 @@ void			made_threads(t_condition *condition);
 void			print_message(char *s, t_philo *philo, int is_dead);
 
 void			*check_dead(void *philo_v);
-void			*check_count(void *philo_v);
+void			*check_count(void *condition);
 int				check_argv(char **argv);
 
 #endif
