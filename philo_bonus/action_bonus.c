@@ -6,7 +6,7 @@
 /*   By: hyerkim <hyerkim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:45:36 by hyerkim           #+#    #+#             */
-/*   Updated: 2021/07/07 14:39:44 by hyerkim          ###   ########.fr       */
+/*   Updated: 2021/07/07 15:04:03 by hyerkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void	made_process(t_condition *condition)
 		condition->philo[i].pid = fork();
 		if (condition->philo[i].pid == 0)
 			start(&condition->philo[i]);
+		usleep(100);
 	}
 }
